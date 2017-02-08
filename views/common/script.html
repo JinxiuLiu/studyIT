@@ -1,0 +1,23 @@
+<script src="/public/js/require.js"></script>
+
+<script>
+	// 配置
+	require.config({
+		baseUrl: '/public',
+		paths: {
+			jquery: 'assets/jquery/jquery.min',
+			echarts: 'assets/echarts/echarts.min',
+			bootstrap: 'assets/bootstrap/js/bootstrap.min'
+		},
+		// 非模块化
+		shim: {
+			bootstrap: {
+				// 依赖插件
+				deps: ['jquery']
+			}
+		}
+	});
+
+	require(['src/common', 'bootstrap']);
+</script>
+
