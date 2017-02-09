@@ -1,4 +1,4 @@
-define(['jquery', 'template', 'cookie'], function($, template) {
+define(['jquery', 'template', 'nprogress', 'cookie'], function($, template, NProgress) {
 	// 判断页面是否登入
 	// 地址栏pathname 不是login  并且 没有cookie 则跳转 登入页面
 	if(location.pathname != '/login' && !$.cookie('PHPSESSID')) {
@@ -43,5 +43,14 @@ define(['jquery', 'template', 'cookie'], function($, template) {
     });
 
 
+    // 进度条
+    NProgress.start();
+	NProgress.done();
 
+	// 发送ajax请求时，用户等待图片
+	$(document).ajaxStart(function() {
+		$('.overlay').show();
+	}).ajaxStop(function() {
+		$('.overlay').hide();
+	});
 });
