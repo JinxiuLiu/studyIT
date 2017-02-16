@@ -22,11 +22,19 @@
 ##使用说明：
 1. 由于本项目涉及到AJAX相关操作以及配置了反向代理，你需要：
   1. 将项目加载到服务器环境中，并配置浏览域名。
-  2. 配置反向代理: 接口地址：http://api.botue.com
+  2. 反向代理详细配置说明：
+  ```
+    1. 开启Apache rewrite模块，将#号删除
+        #LoadModule rewrite_module modules/mod_rewrite.so
+    2. 设置目录权限
+        搜索找到 AllowOverride 设置 AllowOverride All
+    3.
+  ```
+
 
 2. 项目目录结构：
   1.  index.php: 项目入口文件
-  2.  .htaccess: 反向代理配置文件
+  2.  .htaccess: 隐藏入口文件
   3.  public文件夹：主要存放公共代码
      1. assets文件夹：所有需要的插件
      2. images文件夹：项目所需图片

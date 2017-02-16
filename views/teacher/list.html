@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>学IT - 后台管理系统</title>
+    <!-- css 样式 -->
     <?php include('./views/common/style.html'); ?>
 </head>
 <body>
-    
     <!-- 侧边栏 -->
     <?php include('./views/common/aside.html'); ?>
     <!-- 主体 -->
@@ -22,7 +22,7 @@
                     <li class="active">讲师列表</li>
                 </ol>
                 <div class="page-title">
-                    <a href="./teacher_add.html" class="btn btn-success btn-sm pull-right">添加讲师</a>
+                    <a href="/teacher/teacher_add" class="btn btn-success btn-sm pull-right">添加讲师</a>
                 </div>
                 <div class="panel panel-default">
                     <div class="panel-body">
@@ -36,14 +36,14 @@
                         </form>
                     </div>
                     <table class="table table-striped table-bordered table-hover" id="teacherList">
-                        <!-- 模板 -->
+                       <!-- 动态渲染 -->
                     </table>
                 </div>
             </div>
         </div>
     </div>
 
-     <!-- 模态框 添加课程 -->
+   <!-- 模态框 添加课程 -->
     <div class="modal fade" id="teacherModal">
         <div class="modal-dialog" style="width: 750px;">
             <div class="panel panel-default">
@@ -52,12 +52,58 @@
                     <h4 class="panel-title">讲师信息</h4>
                 </div>
                 <div class="panel-body">
-                    <!-- 模板渲染 -->
+                    <!-- 挖个坑 -->
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- 模态框模板 -->
+    <script type="text/template" id="modalTpl">
+        <table class="table table-bordered table-condensed">
+            <tbody>
+                <tr>
+                    <th>姓名:</th><td>{{tc_name}}</td>
+                    <th>职位:</th><td colspan="3">讲师</td>
+                    <td rowspan="4" width="128">
+                        <div class="avatar">
+                            {{if tc_avatar}}
+                            <img src="{{tc_avatar}}">
+                            {{else}}
+                            <img src="/public/images/default.png">
+                            {{/if}}
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>花名:</th><td>{{tc_roster}}</td>
+                    <th>出生日期:</th><td colspan="3">{{tc_birthday}}</td>
+                </tr>
+                <tr>
+                    <th>性别:</th>
+                    {{if tc_gender == 0}}
+                    <td>男</td>
+                    {{else}}
+                    <td>女</td>
+                    {{/if}}
+                    <th>入职日期:</th><td colspan="3">{{tc_join_date}}</td>
+                </tr>
+                <tr>
+                    <th>手机号码:</th><td colspan="2">{{tc_cellphone}}</td>
+                    <th>邮箱:</th><td colspan="2">{{tc_email}}</td>
+                </tr>
+                <tr>
+                    <th>籍贯:</th><td colspan="6">{{tc_hometown}}</td>
+                </tr>
+                <tr>
+                    <td colspan="7">
+                        <div class="introduce">{{#tc_introduce}}</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </script>
+    
     <!-- 讲师列表模板 -->
     <script type="text/template" id="teacherTpl">
         <thead>
@@ -88,62 +134,23 @@
                 {{/if}}
                 <td>{{$value.tc_cellphone}}</td>
                 <td>{{$value.tc_email}}</td>
-                <td data-id="{{$value.tc_id}}" data-status="{{$value.tc_status}}">
-                    <a href="" data-toggle="modal" class="btn btn-info btn-xs preview">查 看</a>
-                    <a href="/teacher/add" class="btn btn-info btn-xs">编 辑</a>
-                    <a href="javascript:;" class="btn btn-warning btn-xs">注 销</a>
+                <td data-id="{{$value.tc_id}}" data-status={{$value.tc_status}}>
+                    <a href="javascript:;" class="btn btn-info btn-xs preview">查 看</a>
+                    <a href="/teacher/teacher_add?tc_id={{$value.tc_id}}" class="btn btn-info btn-xs">编 辑</a>
+                    {{if $value.tc_status == 0}}
+                    <a href="javascript:;" class="btn btn-warning btn-xs handle">注 销</a>
+                    {{else}}
+                    <a href="javascript:;" class="btn btn-warning btn-xs handle">启 用</a>
+                    {{/if}}
                 </td>
             </tr>
             {{/each}}
         </tbody>
-    </script>
+    </script>  
 
-    <!-- 模态框模板 -->
-    <script type="text/templat" id="modalTpl">
-        <table class="table table-bordered table-condensed">
-            <tbody>
-                <tr>
-                    <th>姓名:</th><td>{{tc_name}}</td>
-                    <th>职位:</th><td colspan="3">讲师</td>
-                    <td rowspan="4" width="128">
-                        <div class="avatar">
-                            {{if tc_avatar}}
-                            <img src="{{tc_avatar}}" alt="">
-                            {{else}}
-                            <img src="/public/images/default.png" alt="">
-                            {{/if}}
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <th>花名:</th><td>{{tc_roster}}</td>
-                    <th>出生日期:</th><td colspan="3">{{tc_birthday}}</td>
-                </tr>
-                <tr>
-                    <th>性别:</th>{{if tc_gender == 0}}<td>男</td>{{else}}<td>女</td>{{/if}}
-                    <th>入职日期:</th><td colspan="3">{{tc_join_date}}</td>
-                </tr>
-                <tr>
-                    <th>手机号码:</th><td colspan="2">{{tc_cellphone}}</td>
-                    <th>邮箱:</th><td colspan="2">{{tc_email}}</td>
-                </tr>
-                <tr>
-                    <th>籍贯:</th><td colspan="6">{{tc_hometown}}</td>
-                </tr>
-                <tr>
-                    <td colspan="7">
-                        <div class="introduce">
-                           {{tc_introduce}}
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </script>
-
+</body>
     <?php include('./views/common/script.html'); ?>
     <script>
-        require(['src/teacher/list']);
+        require(['src/teacher/teacher_list']);
     </script>
-</body>
 </html>
