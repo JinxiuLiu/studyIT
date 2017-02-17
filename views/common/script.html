@@ -1,27 +1,44 @@
 <script src="/public/js/require.js"></script>
-
 <script>
-	// 配置
-	require.config({
-		baseUrl: '/public',
-		paths: {
-			jquery: 'assets/jquery/jquery.min',
-			echarts: 'assets/echarts/echarts.min',
-			form: 'assets/jquery-form/jquery.form',
-			cookie: 'assets/jquery-cookie/jquery.cookie',
-			template: 'assets/artTemplate/template',
-			nprogress: 'assets/nprogress/nprogress',
-			bootstrap: 'assets/bootstrap/js/bootstrap.min'
-		},
-		// 非模块化
-		shim: {
-			bootstrap: {
-				// 依赖插件
-				deps: ['jquery']
-			}
-		}
-	});
-	// 全局加载
-	require(['src/common', 'bootstrap']);
+// 配置 require 路径
+require.config({
+    baseUrl: '/public',
+    paths: {
+        jquery: 'assets/jquery/jquery',
+        cookie: 'assets/jquery-cookie/jquery.cookie',
+        form: 'assets/jquery-form/jquery.form',
+        region: 'assets/jquery-region/jquery.region',
+        uploadify: 'assets/uploadify/jquery.uploadify.min',
+        validate: 'assets/jquery-validate/jquery-validate.min',
+        jcrop: 'assets/Jcrop/js/Jcrop',
+        bootstrap: 'assets/bootstrap/js/bootstrap.min',
+        datepicker: 'assets/bootstrap-datepicker/js/bootstrap-datepicker.min',
+        language: 'assets/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min',
+        template: 'assets/artTemplate/template',
+        nprogress: 'assets/nprogress/nprogress',
+        ckeditor: 'assets/ckeditor/ckeditor'
+    },
+    shim: {
+        bootstrap: {
+            deps: ['jquery']
+        },
+        uploadify: {
+            deps: ['jquery']
+        },
+        validate: {
+            deps: ['jquery']
+        },
+        jcrop: {
+            deps: ['jquery']
+        },
+        language: {
+            deps: ['datepicker']
+        },
+        ckeditor: {
+            // 暴露插件的全局对象
+            exports: 'CKEDITOR'
+        }
+    }
+});
+require(['src/common', 'bootstrap']);
 </script>
-

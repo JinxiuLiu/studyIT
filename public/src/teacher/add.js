@@ -1,6 +1,6 @@
 define(['jquery', '../utils', 'template', 'form', 'datepicker', 'language'], function($, utils, template) {
 	// 设置导航
-    utils.setMenu('/teacher/teacher_list');
+    utils.setMenu('/teacher/list');
     // 公共DOM
     var tc_id = utils.getID('tc_id'),
         teacher = $('#teacher'),
@@ -47,7 +47,7 @@ define(['jquery', '../utils', 'template', 'form', 'datepicker', 'language'], fun
     				} else {
     					alert('添加成功!');
     				}
-    				location.href = '/teacher/teacher_list';
+    				location.href = '/teacher/list';
     			}
     		}
     	});

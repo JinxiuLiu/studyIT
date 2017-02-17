@@ -1,6 +1,6 @@
 define(['jquery', 'template', '../utils'], function($, template, utils) {
     // 设置选中导航
-    utils.setMenu('/teacher/teacher_list');
+    utils.setMenu('/teacher/list');
 
     // 全局获取DOM元素
     var teacherList = $('#teacherList'),

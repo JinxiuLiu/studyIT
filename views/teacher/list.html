@@ -22,7 +22,7 @@
                     <li class="active">讲师列表</li>
                 </ol>
                 <div class="page-title">
-                    <a href="/teacher/teacher_add" class="btn btn-success btn-sm pull-right">添加讲师</a>
+                    <a href="/teacher/add" class="btn btn-success btn-sm pull-right">添加讲师</a>
                 </div>
                 <div class="panel panel-default">
                     <div class="panel-body">
@@ -136,7 +136,7 @@
                 <td>{{$value.tc_email}}</td>
                 <td data-id="{{$value.tc_id}}" data-status={{$value.tc_status}}>
                     <a href="javascript:;" class="btn btn-info btn-xs preview">查 看</a>
-                    <a href="/teacher/teacher_add?tc_id={{$value.tc_id}}" class="btn btn-info btn-xs">编 辑</a>
+                    <a href="/teacher/add?tc_id={{$value.tc_id}}" class="btn btn-info btn-xs">编 辑</a>
                     {{if $value.tc_status == 0}}
                     <a href="javascript:;" class="btn btn-warning btn-xs handle">注 销</a>
                     {{else}}
@@ -151,6 +151,6 @@
 </body>
     <?php include('./views/common/script.html'); ?>
     <script>
-        require(['src/teacher/teacher_list']);
+        require(['src/teacher/list']);
     </script>
 </html>

@@ -1,7 +1,7 @@
-define(['jquery', 'echarts', '../utlis'], function($, echarts, utlis) {
+define(['jquery', 'echarts', '../utils'], function($, echarts, utils) {
 
     // 设置导航
-    utlis.setMenu('/');
+    utils.setMenu('/');
 
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('main'));

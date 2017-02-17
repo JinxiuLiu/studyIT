@@ -1,5 +1,5 @@
-define(['jquery', '../utlis'], function($, utlis) {
+define(['jquery', '../utils'], function($, utils) {
 	// 设置导航
-	utlis.setMenu('/user/list');
+	utils.setMenu('/user/list');
 	
 });
