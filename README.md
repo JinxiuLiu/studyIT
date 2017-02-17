@@ -17,20 +17,20 @@
 
 
 ##使用说明：
-1. 由于本项目涉及到AJAX相关操作以及配置了反向代理，你需要：
-  1. 将项目加载到服务器环境中，并配置浏览域名。
-  2. 反向代理详细配置说明：[详细配置见博客](http://www.sayweb.top/apache-reverse-proxy.html)
+* 由于本项目涉及到AJAX相关操作以及配置了反向代理，你需要：
+  - 将项目加载到服务器环境中，并配置浏览域名。
+  - 反向代理详细配置说明：[详细配置见博客](http://www.sayweb.top/apache-reverse-proxy.html)
 
-2. 项目目录结构：
-  1.  index.php: 项目入口文件
-  2.  .htaccess: 隐藏入口文件
-  3.  public文件夹：主要存放公共代码
-     1. assets文件夹：所有需要的插件
-     2. images文件夹：项目所需图片
-     3. js文件夹：require.js 单独存放再次
-     4. less文件夹：项目中用到样式文件
-     5. src文件夹：模块化的JS代码
-  4. uploads文件夹： 项目初始图片
-  5. views：HTML页面
+* 项目目录结构：
+  -  index.php: 项目入口文件
+  -  .htaccess: 隐藏入口文件
+  -  public文件夹：主要存放公共代码
+     + assets文件夹：所有需要的插件
+     + images文件夹：项目所需图片
+     + js文件夹：require.js 单独存放再次
+     + less文件夹：项目中用到样式文件
+     + src文件夹：模块化的JS代码
+  - uploads文件夹： 项目初始图片
+  - views：HTML页面
     
 
