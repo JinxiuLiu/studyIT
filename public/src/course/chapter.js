@@ -4,7 +4,7 @@ define(['jquery', '../utils', 'template', 'validate', 'form'], function ($, util
 	utils.setMenu('/course/create');
 
 	// 根据课程id获取课程信息
-	var cs_id = utils.qs('cs_id'),
+	var cs_id = utils.getID('cs_id'),
 		chapter = $('#chapter'),
 		chapterModal = $('#chapterModal'),
 		html;
