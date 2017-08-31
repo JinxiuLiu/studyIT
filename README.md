@@ -24,21 +24,21 @@
 
 * 项目目录结构：
 ```
-  -  index.php: 项目入口文件
-  -  .htaccess: 隐藏入口文件
-    +---public
-  |   +---assets
-  |   +---images
-  |   +---js
-  |   +---less
-  |   \---src
+    +  index.php // 项目入口文件
+    +  .htaccess // 隐藏入口文件
+  | +---public  // 主要存放公共代码
+  |   +---assets  // 所有需要的插件
+  |   +---images  // 项目所需图片
+  |   +---js  // require.js 单独存放再此
+  |   +---less  // 项目中用到样式文件
+  |   \---src // 模块化的JS代码
   |       +---advert
   |       +---course
   |       +---index
   |       +---teacher
   |       \---user
-  +---uploads
-  \---views
+  +---uploads // 项目初始图片
+  \---views // HTML页面
       +---advert
       +---common
       +---course
@@ -46,4 +46,3 @@
       +---teacher
       \---user
 ```
-
