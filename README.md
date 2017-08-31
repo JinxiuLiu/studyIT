@@ -23,15 +23,27 @@
   - 反向代理详细配置说明：[详细配置见博客](http://www.sayweb.top/apache-reverse-proxy.html)
 
 * 项目目录结构：
+```
   -  index.php: 项目入口文件
   -  .htaccess: 隐藏入口文件
-  -  public文件夹：主要存放公共代码
-     + assets文件夹：所有需要的插件
-     + images文件夹：项目所需图片
-     + js文件夹：require.js 单独存放再次
-     + less文件夹：项目中用到样式文件
-     + src文件夹：模块化的JS代码
-  - uploads文件夹： 项目初始图片
-  - views：HTML页面
-    
+    +---public
+  |   +---assets
+  |   +---images
+  |   +---js
+  |   +---less
+  |   \---src
+  |       +---advert
+  |       +---course
+  |       +---index
+  |       +---teacher
+  |       \---user
+  +---uploads
+  \---views
+      +---advert
+      +---common
+      +---course
+      +---index
+      +---teacher
+      \---user
+```
 
